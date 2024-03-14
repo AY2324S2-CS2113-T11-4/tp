@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ResponseManagerTest {
     private final PrintStream standardOut = System.out;
@@ -32,13 +32,15 @@ class ResponseManagerTest {
     @Test
     void printJobSelectionMessage() {
         ResponseManager.printJobSelectionMessage();
-        assertEquals("Choose your job type (Robotics, Semiconductor industry, Artificial intelligence): ", outputStreamCaptor.toString().trim());
+        assertEquals("Choose your job type (Robotics, Semiconductor industry, Artificial intelligence): ",
+            outputStreamCaptor.toString().trim());
     }
 
     @Test
     void printJobSelectionErrorMessage() {
         ResponseManager.printJobSelectionErrorMessage();
-        assertEquals("Invalid job type. Please choose from Robotics, Semiconductor industry, Artificial intelligence.", outputStreamCaptor.toString().trim());
+        assertEquals("Invalid job type. Please choose from Robotics, Semiconductor industry," +
+            " Artificial intelligence.", outputStreamCaptor.toString().trim());
     }
 
     @Test
